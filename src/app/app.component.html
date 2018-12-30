@@ -1,1 +1,5 @@
-
+<input type="text" [(ngModel)]="number">
+<button (click)="testJS()">TestJS</button>
+<button (click)="testWebAssembly()">TestWebAssembly</button>
+<p *ngIf="jsResult">Javascript: {{ jsResult }}</p>
+<p *ngIf="wasmResult">WebAssembly: {{ wasmResult }}</p>

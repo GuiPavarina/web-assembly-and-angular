@@ -21,7 +21,6 @@ export class WasmService {
 
   private async instantiateWasm(url: string) {
     const wasmFile = await fetch(url);
-    console.log(wasmFile);
     // convert it into a binary array
     const buffer = await wasmFile.arrayBuffer();
     const binary = new Uint8Array(buffer);
@@ -34,25 +33,17 @@ export class WasmService {
         this.wasmReady.next(true);
       }
     };
-    console.log(moduleArgs);
     // instantiate the module
     this.module = Module(moduleArgs);
     }
 
-    // NEED SOME IMPROVEMENT ;)
-    public fibonacci(input: number): Observable<number> {
-      return this.wasmReady.pipe(filter(value => value === true)).pipe(
-        mergeMap(() => {
-          return from(
-            new Promise<number>((resolve, reject) => {
-              setTimeout(() => {
-                const result = this.module._fibonacci(input);
-                resolve(result);
-              });
-            })
-          );
-        }),
-        take(1)
+    public fibonacci = (input: number): Observable<number> => {
+      return this.wasmReady.pipe(
+        filter(value => value === true),
+        mergeMap(() => new Observable<number>(observer => {
+          const result = this.module._fibonacci(input);
+          observer.next(result);
+        }))
       );
     }
 
