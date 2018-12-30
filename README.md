@@ -10,7 +10,7 @@ npm i --dev --save @types/webassembly-js-api
 
 *IT WONT WORK WITHOUT THIS STEP*
 
-the following line should be removed from the noed_modules/webpack/lib/WebpackOptionsDefaulter.js
+the following line should be removed from the node_modules/webpack/lib/WebpackOptionsDefaulter.js
 
 ```js
 //from options => this.set("module.defaultRules", "make", options => [
