@@ -1,4 +1,4 @@
-# WebassemblyAngular
+# Webassembly Angular
 
 ## Objective
 The goal is to test the integration between webAssembly and Angular 6
@@ -26,7 +26,9 @@ https://webassembly.org/getting-started/developers-guide/
 
 ### Compiling the fibonacci.c
 
+```bash
 emcc fibonacci.c -Os -s WASM=1 -s MODULARIZE=1 -o fibonacci.js
+```
 
 -Os Reduce code size
 -s MODULARIZE=1  wrap that code into a module
