@@ -1,5 +1,7 @@
 # Webassembly Angular
 
+Thanks to this [awesome guide](https://malcoded.com/posts/web-assembly-angular) about the Angular and WebAssembly integration
+
 ## Objective
 The goal is to test the integration between webAssembly and Angular 6
 

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import * as Module from '../../../wasm/fibonacci.js';
 import '!!file-loader?name=wasm/fibonacci.wasm!../../../wasm/fibonacci.wasm';
-import { BehaviorSubject, Observable, from } from 'rxjs';
-import { filter, mergeMap, take} from 'rxjs/operators';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { filter, mergeMap} from 'rxjs/operators';
 
 declare var WebAssembly;
 
